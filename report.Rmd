@@ -43,7 +43,7 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
-
+library(lubridate)
 ```
 
 
@@ -54,20 +54,23 @@ library(bookdown)
 ita_usa <- read_csv(here::here("Data/worldwidecases.csv")) %>% 
   filter(countryterritoryCode %in% c("ITA", "USA"),
          year == "2020")
-
 ```
 
 ```{r cases-plot, fig.cap = "2020 COVID-19 Cases in Italy and USA"}
 ita_usa %>% group_by(countryterritoryCode, month) %>% 
-  summarise(Total = sum(cases)) %>% 
+  summarise(`Total Cases` = sum(cases)) %>% 
   ggplot(aes(x = month,
-             y = Total,
+             y = `Total Cases`,
              color = countryterritoryCode)) +
   geom_line()
 ```
 
 ```{r death-table}
-
+ita_usa %>% select(countriesAndTerritories, dateRep, deaths) %>% 
+  arrange(-deaths) %>% 
+  head(5) %>% 
+  kable(caption = "Top 5 Largest Number of Daily Deaths in Italy and USA") %>% 
+  kable_styling(bootstrap_options = c("striped","hover"))
 ```
 
 \section*{Country XX2 and YY2}
