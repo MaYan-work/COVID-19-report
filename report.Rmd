@@ -51,6 +51,44 @@ library(bookdown)
 \section*{Country XX1 and YY1"}
 
 \section*{Country XX2 and YY2}
+This section would do some analysis on China and Japan.
+
+# read data
+
+```{r read-data} 
+selected_countries <- c("CHN", "JPN")
+chn_jpn <- read_csv(here::here("Data/worldwidecases.csv")) %>% 
+  filter(countryterritoryCode %in% selected_countries)
+```
+
+```{r tab1, echo = FALSE, tab.align = 'center', tab.cap = "Total cases and deaths in each country"}
+cases <- chn_jpn %>% 
+  group_by(countryterritoryCode) %>% 
+  summarise(total_cases = sum(cases), 
+            total_deaths = sum(deaths))
+kable(cases) %>% 
+  kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+Table \@ref(tab:tab1) shows the total cases and deaths of COVID-19 in China and Japan from December 2019 to May 2020.
+
+```{r fig1, echo = FALSE, fig.align = 'center', fig.cap = "Cases by time"}
+library(lubridate)
+library(plotly)
+chn_jpn %>% 
+  mutate(date = dmy(dateRep)) %>% 
+  ggplot(aes(x = date, y = cases, group = countryterritoryCode)) + 
+  geom_line() + 
+  facet_wrap(~countryterritoryCode) 
+ggplotly()
+
+```
+
+
+\@ref(fig:fig1) Shows the trend of cases reported every day in China and Japan. 
+For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12. See more information [here](https://www.worldometers.info/coronavirus/how-to-interpret-feb-12-case-surge/). If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
+For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March.
+
 
 \section*{Country XX3 and YY3}
 
