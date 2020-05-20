@@ -43,12 +43,61 @@ library(tidyverse)
 library(readr)
 library(kableExtra)
 library(bookdown)
+library(lubridate)
+```
 
+\section*{Country XX1 and YY1"}
+```{r read-in data}
+covid <- read.csv(file = here::here("Data/worldwidecases.csv")) 
+```
+
+```{r sgp-usa}
+sgp_usa <- covid %>%
+  mutate(date = dmy(dateRep), 
+         yday = yday(date)) %>%
+  rename(country = countriesAndTerritories) %>%
+  filter(countryterritoryCode %in% c("SGP", "USA"),
+         month %in% c(3:5)
+         )
+```
+
+```{r cases-per-mil}
+sgp_usa <- sgp_usa %>%
+  group_by(country, yday) %>%
+  mutate(cases_per_mil = (cases * (1000000 / popData2018)),
+         deaths_per_mil = (deaths * (1000000 / popData2018))
+         )
+```
+
+```{r bel-usa-barchart, fig.width = 7, fig.heigh = 5}
+sgp_usa %>%
+  ggplot() +
+  geom_histogram(
+    stat = "identity",
+    width = 0.5,
+    position = "dodge",
+    aes(x = date, y = cases_per_mil, fill = country)
+  ) +
+  theme(legend.position = "bottom") 
+```
+
+```{r}
+sgp_usa_week <- sgp_usa %>%
+  mutate(week = week(date) - 8) # Set March 1 as Week 1 
 ```
 
 
+```{r}
+sgp_usa_week %>%
+  mutate(death_prop = deaths_per_mil/cases_per_mil*100) %>%
+  select(week, country, cases_per_mil, deaths_per_mil, death_prop) %>%
+  group_by(week, country) %>%
+  summarise(avg_cases = sum(cases_per_mil),
+            avg_deaths = sum(deaths_per_mil),
+            death_prop = mean(death_prop))
+```
 
-\section*{Country XX1 and YY1"}
+
 
 \section*{Country XX2 and YY2}
 
