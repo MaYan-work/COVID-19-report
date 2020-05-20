@@ -50,28 +50,50 @@ library(lubridate)
 
 \section*{Country Italy and USA}
 
-```{r covid-ita-usa}
+```{r covid-ita-usa, message = FALSE}
 ita_usa <- read_csv(here::here("Data/worldwidecases.csv")) %>% 
   filter(countryterritoryCode %in% c("ITA", "USA"),
          year == "2020")
 ```
 
-```{r cases-plot, fig.cap = "2020 COVID-19 Cases in Italy and USA"}
-ita_usa %>% group_by(countryterritoryCode, month) %>% 
-  summarise(`Total Cases` = sum(cases)) %>% 
+```{r cases-plot, warning = FALSE, fig.cap = "2020 COVID-19 Cases in Italy and USA"}
+ita_usa %>% filter(month != 5) %>% 
+  group_by(countryterritoryCode, month) %>% 
+  summarise(total_cases = sum(cases)) %>% 
   ggplot(aes(x = month,
-             y = `Total Cases`,
+             y = total_cases,
              color = countryterritoryCode)) +
   geom_line()
 ```
 
-```{r death-table}
+Figure \@ref(fig:cases-plot) reflects the number of COVID-19 cases in Italy and USA from January to May 2020.
+
+The total number of cases are reflected in the y axis, and the x axis represents the period (month).
+
+It is reflected in the figure that COVID-19 cases did not start in Italy and USA until March where there was no significant difference between the two countries.
+
+There was a slight increase in COVID-19 cases in April in Italy. However, the number of cases in the US rose significantly in April.
+
+By the end of April, the number of cases in the US is approximately four times larger comapred to Italy.
+
+According to [@vox] the number of COVID-19 cases in the US make up approximately a third of the world's cases.
+
+
+```{r death-table, warning = FALSE}
 ita_usa %>% select(countriesAndTerritories, dateRep, deaths) %>% 
   arrange(-deaths) %>% 
   head(5) %>% 
   kable(caption = "Top 5 Largest Number of Daily Deaths in Italy and USA") %>% 
   kable_styling(bootstrap_options = c("striped","hover"))
 ```
+
+Table \@ref(tab:death-table) shows the top 5 largest daily in COVID-19 related deaths in Italy and USA.
+
+The table shows that the 5 largest amount of deaths occured in one day happened in the US.
+
+These mostly happened in the third and fourth week of April.
+
+The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.
 
 \section*{Country XX2 and YY2}
 This section would do some analysis on China and Japan.
