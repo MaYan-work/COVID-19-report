@@ -1,8 +1,8 @@
 ---
 title: "Corona Virus Report"
 author:
-- familyname: XXXX
-  othernames: XXX
+- familyname: Effendy
+  othernames: Jimmy
   address: Monash Universtidy
   email: XXX
   correspondingauthor: true
@@ -48,7 +48,27 @@ library(bookdown)
 
 
 
-\section*{Country XX1 and YY1"}
+\section*{Country Italy and USA}
+
+```{r covid-ita-usa}
+ita_usa <- read_csv(here::here("Data/worldwidecases.csv")) %>% 
+  filter(countryterritoryCode %in% c("ITA", "USA"),
+         year == "2020")
+
+```
+
+```{r cases-plot, fig.cap = "2020 COVID-19 Cases in Italy and USA"}
+ita_usa %>% group_by(countryterritoryCode, month) %>% 
+  summarise(Total = sum(cases)) %>% 
+  ggplot(aes(x = month,
+             y = Total,
+             color = countryterritoryCode)) +
+  geom_line()
+```
+
+```{r death-table}
+
+```
 
 \section*{Country XX2 and YY2}
 This section would do some analysis on China and Japan.
