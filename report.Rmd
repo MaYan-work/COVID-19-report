@@ -1,12 +1,12 @@
 ---
 title: "Corona Virus Report"
 author:
-- familyname: XXXX
-  othernames: XXX
+- familyname: Ang
+  othernames: Brendi
   address: Monash Universtidy
-  email: XXX
+  email: ang0004@student.monash.edu
   correspondingauthor: true
-  qualifications:  XXX
+  qualifications: BSc
 - familyname: XXXX
   othernames: Reports
   address: XXX
@@ -52,10 +52,11 @@ library(bookdown)
 library(lubridate)
 ```
 
-\section*{Country Singapore and United States of America"}
+\section*{Country Singapore and United States of America}
 ```{r read-in data}
 covid <- read.csv(file = here::here("Data/worldwidecases.csv")) 
 ```
+
 
 ```{r sgp-usa-data, include = FALSE}
 sgp_usa <- covid %>%
