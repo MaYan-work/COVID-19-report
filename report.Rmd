@@ -47,10 +47,10 @@ library(bookdown)
 library(lubridate)
 ```
 
-\section*{Country XX1 and YY1"}
+\section*{Country Singapore and United States of America"}
 ```{r read-in data}
 covid <- read.csv(file = here::here("Data/worldwidecases.csv")) 
-options(nsmall = 2) # setting decimal places to 2
+options(digits = 2) # format decimal places to 2
 ```
 
 ```{r sgp-usa-data}
@@ -79,6 +79,7 @@ sgp_usa %>%
     aes(x = date, y = cases_per_mil, colour = country),
     fill = "white"
   ) +
+  ylab("New Cases and Deaths (per million)") +
   scale_color_brewer(palette = "Dark2") +
   geom_line(aes(
     x = date,
@@ -90,29 +91,36 @@ sgp_usa %>%
 ```
 
 
-```{r}
+```{r sgp-usa-week}
 sgp_usa_week <- sgp_usa %>%
   mutate(week = week(date) - 8,
          deaths_prop = deaths_per_mil/cases_per_mil*100) %>%
-  select(date, week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) %>%
+  select(date, month,  week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) %>%
   arrange(date)
 ```
 
-```{r weekly-summary-sgp-usa}
+```{r summary-sgp-usa-week}
 summary_sgp_usa_week <- sgp_usa_week %>%
-  group_by(week, country) %>%
+  group_by(country, week, month) %>%
   summarise(cases_per_week = sum(cases_per_mil),
             deaths_per_week = sum(deaths_per_mil),
-            deaths_prop = mean(deaths_prop)) # % of deaths per week
+            deaths_prop = mean(deaths_prop, na.rm = TRUE)) # % of deaths per week
 
-kable(summary_sgp_usa_week, caption = "Total Cases and Deaths, and proportion of Deaths per week ")
+kable(summary_sgp_usa_week, caption = "Total Cases and Deaths, and Proportion of Deaths per week") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
 ```
 
 # Analysis
 
-Based on Figure \@ref(fig:sgp-usa-barchart)
+This report examines the confirmed COVID-19 cases and deaths recorded in Singapore and the United States (*US*) from the start of March to 10 May 2020. Due to the significant difference in population size, the cases and deaths are scaled to per million people of each country's population for better comparison.
 
-Based on Table \@ref(tab:weekly-summary-sgp-usa)
+Figure \@ref(fig:sgp-usa-barchart) displays the number of new cases in Singapore and *US*. The x-axis shows the number of new cases and deaths on a given day and the y-axis represents each date. It is manifest that confirmed cases in both countries started to pick up in mid-March 2020. There was a gradual increase in new cases in *US* in the last two weeks of March, where it stayed relatively constant to mid-May. In Singapore, an exponential increase in confirmed cases can be observed in mid-April', where the new confirmed cases overtook the US in relative terms (*i.e.* per 1 million). Although the confirmed cases were higher in Singapore, the death rates in the *US* were evidently greater, with Singapore staying relatively constant at 0%.
+
+To investigate further, we observe the start dates of the lockdown policy in each country. In Singapore, the lockdown started at the end of the first week of April, 07/04/2020 (@sgcb). In USA, the effective dates were different in each state, California was the first to enforce it on 19/03/2020 while South Carolina was the last to carry it out on 07/04/2020 (@fowler2020effect).
+
+Based on Table \@ref(tab:summary-sgp-usa-week), Singapore's cases increased by a staggering `r ((1136.61-94.41)/94.41)*100`% from the first week to the last week of April although lockdown and social distancing protocols were in effect. This surge is attributed to the surge in infections among migrant worker population staying in dormitories, which accounted for most of the confirmed cases (@sgcb2). 
+
+On the other hand, *US* cases nearly doubled (`r (622.24-361.22)/361.22`%) from approximately the end of March to the start of April. In contrary to Singapore's cases, confirmed cases in *US* seemed to subside at the end of April 2020 after all states implemented lockdown policies. However, Table \@ref(tab:summary-sgp-usa-week) demonstrated that the proportion of death rates in *US* was not proportionate to the decrease in the cases per week.
 
 
 \section*{Country XX2 and YY2}
