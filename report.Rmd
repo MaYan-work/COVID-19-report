@@ -7,6 +7,12 @@ author:
   email: jef0001@student.monash.edu
   correspondingauthor: true
   qualifications:  B.Com
+- familyname: Ang
+  othernames: Brendi
+  address: Monash Universtidy
+  email: ang0004@student.monash.edu
+  correspondingauthor: true
+  qualifications: BSc
 - familyname: XXXX
   othernames: Reports
   address: XXX
@@ -36,8 +42,11 @@ output:
     toc: false
 ---
 
-```{r global, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, messages = FALSE, warning = FALSE)
+options(digits = 2) # format decimal places to 2
 ```
 
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
@@ -52,10 +61,85 @@ library(lubridate)
 
 
 
+\section*{Country Singapore and United States of America}
+```{r read-in data}
+covid <- read.csv(file = here::here("Data/worldwidecases.csv")) 
+```
+
+```{r sgp-usa-data, include = FALSE}
+sgp_usa <- covid %>%
+  mutate(date = dmy(dateRep),
+         yday = yday(date)) %>%
+  rename(country = countriesAndTerritories) %>%
+  filter(countryterritoryCode %in% c("SGP", "USA"),
+         month %in% c(3:5))
+```
+
+```{r cases-per-mil, include = FALSE}
+sgp_usa <- sgp_usa %>%
+  group_by(country, yday) %>%
+  mutate(cases_per_mil = (cases * (1000000 / popData2018)),
+         deaths_per_mil = (deaths * (1000000 / popData2018)))
+```
+
+```{r sgp-usa-barchart, fig.width = 8, fig.heigh = 7, fig.cap = "Total Deaths and Cases in SGP and USA from 01/03/2020 to 10/05/20"}
+sgp_usa %>%
+  ggplot() +
+  geom_histogram(
+    stat = "identity",
+    width = 0.3,
+    position = "dodge",
+    aes(x = date, y = cases_per_mil, colour = country),
+    fill = "white"
+  ) +
+  ylab("New Cases and Deaths (per million)") +
+  scale_color_brewer(palette="Dark2") +
+  geom_line(aes(
+    x = date,
+    y = deaths_per_mil,
+    colour = country,
+    group = country
+  )) +
+  theme(legend.position = "bottom")
+```
+
+
+```{r sgp-usa-week, include = FALSE}
+sgp_usa_week <- sgp_usa %>%
+  mutate(week = week(date) - 8,
+         deaths_prop = deaths_per_mil/cases_per_mil*100) %>%
+  select(date, month,  week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) %>%
+  arrange(date)
+```
+
+```{r summary-sgp-usa-week}
+summary_sgp_usa_week <- sgp_usa_week %>%
+  group_by(country, week, month) %>%
+  summarise(cases_per_week = sum(cases_per_mil),
+            deaths_per_week = sum(deaths_per_mil),
+            deaths_prop = mean(deaths_prop, na.rm = TRUE)) # % of deaths per week
+
+kable(summary_sgp_usa_week, caption = "Total Cases and Deaths, and Proportion of Deaths per week") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+# Analysis
+
+This report examines the confirmed COVID-19 cases and deaths recorded in Singapore and the United States (*US*) from the start of March to 10 May 2020. Due to the significant difference in population size, the cases and deaths are scaled to per million people of each country's population for better comparison.
+
+Figure \@ref(fig:sgp-usa-barchart) displays the number of new cases in Singapore and *US*. The x-axis shows the number of new cases and deaths on a given day and the y-axis represents each date. It is manifest that confirmed cases in both countries started to pick up in mid-March 2020. There was a gradual increase in new cases in *US* in the last two weeks of March, where it stayed relatively constant to mid-May. In Singapore, an exponential increase in confirmed cases can be observed in mid-April', where the new confirmed cases overtook the US in relative terms (*i.e.* per 1 million). Although the confirmed cases were higher in Singapore, the death rates in the *US* were evidently greater, with Singapore staying relatively constant at 0%.
+
+To investigate further, we observe the start dates of the lockdown policy in each country. In Singapore, the lockdown started at the end of the first week of April, 07/04/2020 (@sgcb). In USA, the effective dates were different in each state, California was the first to enforce it on 19/03/2020 while South Carolina was the last to carry it out on 07/04/2020 (@fowler2020effect).
+
+Based on Table \@ref(tab:summary-sgp-usa-week), Singapore's cases increased by a staggering `r ((1136.61-94.41)/94.41)*100`% from the first week to the last week of April although lockdown and social distancing protocols were in effect. This surge is attributed to the surge in infections among migrant worker population staying in dormitories, which accounted for most of the confirmed cases (@sgcb2). 
+
+On the other hand, *US* cases nearly doubled (`r (622.24-361.22)/361.22`%) from approximately the end of March to the start of April. In contrary to Singapore's cases, confirmed cases in *US* seemed to subside at the end of April 2020 after all states implemented lockdown policies. However, Table \@ref(tab:summary-sgp-usa-week) demonstrated that the proportion of death rates in *US* was not proportionate to the decrease in the cases per week.
+
+
 \section*{Country Italy and USA}
 
 ```{r covid-ita-usa, message = FALSE}
-ita_usa <- read_csv(here::here("Data/worldwidecases.csv")) %>% 
+ita_usa <- covid %>% 
   filter(countryterritoryCode %in% c("ITA", "USA"),
          year == "2020")
 ```
@@ -85,47 +169,28 @@ ita_usa %>% select(countriesAndTerritories, dateRep, deaths) %>%
 
 Table \@ref(tab:death-table) shows the top 5 largest daily in COVID-19 related deaths in Italy and USA. The table shows that the 5 largest amount of deaths occured in one day happened in the US. These mostly happened in the third and fourth week of April. The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.The second highest occured on the same week on the 18th of April with 3,770 number of deaths.
 
-\section*{Country XX2 and YY2}
-This section would do some analysis on China and Japan.
-
-# read data
-
-```{r read-data} 
-selected_countries <- c("CHN", "JPN")
-chn_jpn <- read_csv(here::here("Data/worldwidecases.csv")) %>% 
-  filter(countryterritoryCode %in% selected_countries)
-```
-
-```{r tab1, echo = FALSE, tab.align = 'center', tab.cap = "Total cases and deaths in each country"}
-cases <- chn_jpn %>% 
-  group_by(countryterritoryCode) %>% 
-  summarise(total_cases = sum(cases), 
-            total_deaths = sum(deaths))
-kable(cases) %>% 
-  kable_styling(latex_options = c("striped", "hold_position"))
-```
-
-Table \@ref(tab:tab1) shows the total cases and deaths of COVID-19 in China and Japan from December 2019 to May 2020.
-
-```{r fig1, echo = FALSE, fig.align = 'center', fig.cap = "Cases by time"}
-library(lubridate)
-library(plotly)
-chn_jpn %>% 
-  mutate(date = dmy(dateRep)) %>% 
-  ggplot(aes(x = date, y = cases, group = countryterritoryCode)) + 
-  geom_line() + 
-  facet_wrap(~countryterritoryCode) 
-ggplotly()
-
-```
-
-
-\@ref(fig:fig1) Shows the trend of cases reported every day in China and Japan. 
-For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12. See more information [here](https://www.worldometers.info/coronavirus/how-to-interpret-feb-12-case-surge/). If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
-For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March.
-
 
 \section*{Country XX3 and YY3}
 
 
 
+
+```{r citation, include = FALSE}
+citation("tidyverse")
+citation("readr")
+citation("kableExtra")
+citation("bookdown") %>% print(bibtex = TRUE)
+citation("lubridate")
+```
+
+\clearpage 
+
+# Citations
+1. @tidyverse
+2. @readr
+3. @KableExtra
+4. @bookdown
+5. @bookdown2
+6. @lubridate
+
+\clearpage

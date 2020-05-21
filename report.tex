@@ -199,11 +199,11 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Jimmy Effendy}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Jimmy Effendy}\\ {\sf\large B.Com\\[0.5cm]} \sf\Large\textbf{ Brendi Ang}\\ {\sf\large BSc\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
-\lfoot{\sf Effendy, XXXX, XXX: \@date}
+\lfoot{\sf Effendy, Ang, XXXX, XXX: \@date}
 \makeatother
 
 
@@ -304,6 +304,86 @@
 \begin{document}
 \titlepage
 
+\section*{Country Singapore and United States of America}
+
+\begin{figure}
+\centering
+\includegraphics{report_files/figure-latex/sgp-usa-barchart-1.pdf}
+\caption{\label{fig:sgp-usa-barchart}Total Deaths and Cases in SGP and USA from 01/03/2020 to 10/05/20}
+\end{figure}
+
+\begin{table}
+
+\caption{\label{tab:summary-sgp-usa-week}Total Cases and Deaths, and Proportion of Deaths per week}
+\centering
+\begin{tabular}[t]{l|r|r|r|r|r}
+\hline
+country & week & month & cases\_per\_week & deaths\_per\_week & deaths\_prop\\
+\hline
+Singapore & 1 & 3 & 1.77 & 0.00 & 0.00\\
+\hline
+Singapore & 2 & 3 & 9.22 & 0.00 & 0.00\\
+\hline
+Singapore & 3 & 3 & 14.72 & 0.00 & 0.00\\
+\hline
+Singapore & 4 & 3 & 47.17 & 0.35 & 0.61\\
+\hline
+Singapore & 5 & 3 & 59.41 & 0.18 & 0.23\\
+\hline
+Singapore & 6 & 4 & 94.17 & 0.53 & 0.60\\
+\hline
+Singapore & 7 & 4 & 273.65 & 0.53 & 0.13\\
+\hline
+Singapore & 8 & 4 & 903.76 & 0.35 & 0.07\\
+\hline
+Singapore & 9 & 4 & 1136.61 & 0.53 & 0.06\\
+\hline
+Singapore & 10 & 4 & 216.01 & 0.00 & 0.00\\
+\hline
+Singapore & 10 & 5 & 556.34 & 0.71 & 0.13\\
+\hline
+Singapore & 11 & 5 & 652.99 & 0.35 & 0.05\\
+\hline
+United\_States\_of\_America & 1 & 3 & 0.11 & 0.02 & 22.30\\
+\hline
+United\_States\_of\_America & 2 & 3 & 1.99 & 0.06 & 4.53\\
+\hline
+United\_States\_of\_America & 3 & 3 & 11.94 & 0.18 & 1.46\\
+\hline
+United\_States\_of\_America & 4 & 3 & 127.71 & 1.54 & 1.21\\
+\hline
+United\_States\_of\_America & 5 & 3 & 361.22 & 7.89 & 2.15\\
+\hline
+United\_States\_of\_America & 6 & 4 & 622.24 & 23.90 & 3.85\\
+\hline
+United\_States\_of\_America & 7 & 4 & 655.32 & 38.70 & 5.92\\
+\hline
+United\_States\_of\_America & 8 & 4 & 627.07 & 57.74 & 9.18\\
+\hline
+United\_States\_of\_America & 9 & 4 & 613.44 & 41.89 & 7.19\\
+\hline
+United\_States\_of\_America & 10 & 4 & 157.28 & 14.43 & 9.15\\
+\hline
+United\_States\_of\_America & 10 & 5 & 430.13 & 24.35 & 5.62\\
+\hline
+United\_States\_of\_America & 11 & 5 & 394.01 & 30.14 & 7.71\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
+
+This report examines the confirmed COVID-19 cases and deaths recorded in Singapore and the United States (\emph{US}) from the start of March to 10 May 2020. Due to the significant difference in population size, the cases and deaths are scaled to per million people of each country's population for better comparison.
+
+Figure \ref{fig:sgp-usa-barchart} displays the number of new cases in Singapore and \emph{US}. The x-axis shows the number of new cases and deaths on a given day and the y-axis represents each date. It is manifest that confirmed cases in both countries started to pick up in mid-March 2020. There was a gradual increase in new cases in \emph{US} in the last two weeks of March, where it stayed relatively constant to mid-May. In Singapore, an exponential increase in confirmed cases can be observed in mid-April', where the new confirmed cases overtook the US in relative terms (\emph{i.e.} per 1 million). Although the confirmed cases were higher in Singapore, the death rates in the \emph{US} were evidently greater, with Singapore staying relatively constant at 0\%.
+
+To investigate further, we observe the start dates of the lockdown policy in each country. In Singapore, the lockdown started at the end of the first week of April, 07/04/2020 (\textcite{sgcb}). In USA, the effective dates were different in each state, California was the first to enforce it on 19/03/2020 while South Carolina was the last to carry it out on 07/04/2020 (\textcite{fowler2020effect}).
+
+Based on Table \ref{tab:summary-sgp-usa-week}, Singapore's cases increased by a staggering 1103.91\% from the first week to the last week of April although lockdown and social distancing protocols were in effect. This surge is attributed to the surge in infections among migrant worker population staying in dormitories, which accounted for most of the confirmed cases (\textcite{sgcb2}).
+
+On the other hand, \emph{US} cases nearly doubled (0.72\%) from approximately the end of March to the start of April. In contrary to Singapore's cases, confirmed cases in \emph{US} seemed to subside at the end of April 2020 after all states implemented lockdown policies. However, Table \ref{tab:summary-sgp-usa-week} demonstrated that the proportion of death rates in \emph{US} was not proportionate to the decrease in the cases per week.
+
 \section*{Country Italy and USA}
 
 \begin{figure}
@@ -312,17 +392,7 @@
 \caption{\label{fig:cases-plot}2020 COVID-19 Cases in Italy and USA}
 \end{figure}
 
-Figure \ref{fig:cases-plot} reflects the number of COVID-19 cases in Italy and USA from January to May 2020.
-
-The total number of cases are reflected in the y axis, and the x axis represents the period (month).
-
-It is reflected in the figure that COVID-19 cases did not start in Italy and USA until March where there was no significant difference between the two countries.
-
-There was a slight increase in COVID-19 cases in April in Italy. However, the number of cases in the US rose significantly in April.
-
-By the end of April, the number of cases in the US is approximately four times larger in comparison to Italy.
-
-According to \autocite{vox} the number of COVID-19 cases in the US make up approximately a third of the world's cases.
+Figure \ref{fig:cases-plot} reflects the number of COVID-19 cases in Italy and USA from January to May 2020. The total number of cases are reflected in the y axis, and the x axis represents the period (month). It is reflected in the figure that COVID-19 cases did not start in Italy and USA until March where there was no significant difference between the two countries. There was a slight increase in COVID-19 cases in April in Italy. However, the number of cases in the US rose significantly in April. By the end of April, the number of cases in the US is approximately four times larger in comparison to Italy. According to \autocite{vox} the number of COVID-19 cases in the US make up approximately a third of the world's cases.
 
 \clearpage
 
@@ -347,58 +417,33 @@ United\_States\_of\_America & 22/04/2020 & 2524\\
 \end{tabular}
 \end{table}
 
-Table \ref{tab:death-table} shows the top 5 largest daily in COVID-19 related deaths in Italy and USA.
-
-The table shows that the 5 largest amount of deaths occured in one day happened in the US.
-
-These mostly happened in the third and fourth week of April.
-
-The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.
-
-\section*{Country XX2 and YY2}
-
-This section would do some analysis on China and Japan.
-
-\hypertarget{read-data}{%
-\section{read data}\label{read-data}}
-
-\begin{table}[!h]
-\centering
-\begin{tabular}{l|r|r}
-\hline
-countryterritoryCode & total\_cases & total\_deaths\\
-\hline
-\rowcolor{gray!6}  CHN & 83991 & 4637\\
-\hline
-JPN & 15747 & 613\\
-\hline
-\end{tabular}
-\end{table}
-
-Table \ref{tab:tab1} shows the total cases and deaths of COVID-19 in China and Japan from December 2019 to May 2020.
-
-\begin{figure}
-
-{\centering \includegraphics{report_files/figure-latex/fig1-1} 
-
-}
-
-\caption{Cases by time}\label{fig:fig1}
-\end{figure}
-\begin{figure}
-
-{\centering \includegraphics{report_files/figure-latex/fig1-2} 
-
-}
-
-\caption{Cases by time}\label{fig:fig1}
-\end{figure}
-
-\ref{fig:fig1} Shows the trend of cases reported every day in China and Japan.
-For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12. See more information \href{https://www.worldometers.info/coronavirus/how-to-interpret-feb-12-case-surge/}{here}. If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
-For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March.
+Table \ref{tab:death-table} shows the top 5 largest daily in COVID-19 related deaths in Italy and USA. The table shows that the 5 largest amount of deaths occured in one day happened in the US. These mostly happened in the third and fourth week of April. The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.The second highest occured on the same week on the 18th of April with 3,770 number of deaths.
 
 \section*{Country XX3 and YY3}
+
+\clearpage
+
+\hypertarget{citations}{%
+\section{Citations}\label{citations}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textcite{tidyverse}
+\item
+  \textcite{readr}
+\item
+  \textcite{KableExtra}
+\item
+  \textcite{bookdown}
+\item
+  \textcite{bookdown2}
+\item
+  \textcite{lubridate}
+\end{enumerate}
+
+\clearpage
 
 \printbibliography
 
