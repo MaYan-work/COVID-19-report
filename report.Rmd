@@ -37,6 +37,11 @@ output:
 ---
 
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE, messages = FALSE, warning = FALSE)
+options(digits = 2) # format decimal places to 2
+```
+
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
@@ -50,10 +55,9 @@ library(lubridate)
 \section*{Country Singapore and United States of America"}
 ```{r read-in data}
 covid <- read.csv(file = here::here("Data/worldwidecases.csv")) 
-options(digits = 2) # format decimal places to 2
 ```
 
-```{r sgp-usa-data}
+```{r sgp-usa-data, include = FALSE}
 sgp_usa <- covid %>%
   mutate(date = dmy(dateRep),
          yday = yday(date)) %>%
@@ -62,7 +66,7 @@ sgp_usa <- covid %>%
          month %in% c(3:5))
 ```
 
-```{r cases-per-mil}
+```{r cases-per-mil, include = FALSE}
 sgp_usa <- sgp_usa %>%
   group_by(country, yday) %>%
   mutate(cases_per_mil = (cases * (1000000 / popData2018)),
@@ -91,7 +95,7 @@ sgp_usa %>%
 ```
 
 
-```{r sgp-usa-week}
+```{r sgp-usa-week, include = FALSE}
 sgp_usa_week <- sgp_usa %>%
   mutate(week = week(date) - 8,
          deaths_prop = deaths_per_mil/cases_per_mil*100) %>%
@@ -129,3 +133,22 @@ On the other hand, *US* cases nearly doubled (`r (622.24-361.22)/361.22`%) from 
 
 
 
+```{r citation, include = FALSE}
+citation("tidyverse")
+citation("readr")
+citation("kableExtra")
+citation("bookdown") %>% print(bibtex = TRUE)
+citation("lubridate")
+```
+
+\clearpage 
+
+# Citations
+1. @tidyverse
+2. @readr
+3. @KableExtra
+4. @bookdown
+5. @bookdown2
+6. @lubridate
+
+\clearpage
