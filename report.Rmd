@@ -36,6 +36,7 @@ output:
     toc: false
 ---
 
+
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
 
@@ -49,54 +50,69 @@ library(lubridate)
 \section*{Country XX1 and YY1"}
 ```{r read-in data}
 covid <- read.csv(file = here::here("Data/worldwidecases.csv")) 
+options(nsmall = 2) # setting decimal places to 2
 ```
 
-```{r sgp-usa}
+```{r sgp-usa-data}
 sgp_usa <- covid %>%
-  mutate(date = dmy(dateRep), 
+  mutate(date = dmy(dateRep),
          yday = yday(date)) %>%
   rename(country = countriesAndTerritories) %>%
   filter(countryterritoryCode %in% c("SGP", "USA"),
-         month %in% c(3:5)
-         )
+         month %in% c(3:5))
 ```
 
 ```{r cases-per-mil}
 sgp_usa <- sgp_usa %>%
   group_by(country, yday) %>%
   mutate(cases_per_mil = (cases * (1000000 / popData2018)),
-         deaths_per_mil = (deaths * (1000000 / popData2018))
-         )
+         deaths_per_mil = (deaths * (1000000 / popData2018)))
 ```
 
-```{r bel-usa-barchart, fig.width = 7, fig.heigh = 5}
+```{r sgp-usa-barchart, fig.width = 8, fig.heigh = 7, fig.cap = "Total Deaths and Cases in SGP and USA from 01/03/2020 to 10/05/20"}
 sgp_usa %>%
   ggplot() +
   geom_histogram(
     stat = "identity",
-    width = 0.5,
+    width = 0.3,
     position = "dodge",
-    aes(x = date, y = cases_per_mil, fill = country)
+    aes(x = date, y = cases_per_mil, colour = country),
+    fill = "white"
   ) +
-  theme(legend.position = "bottom") 
+  scale_color_brewer(palette = "Dark2") +
+  geom_line(aes(
+    x = date,
+    y = deaths_per_mil,
+    colour = country,
+    group = country
+  )) +
+  theme(legend.position = "bottom")
 ```
+
 
 ```{r}
 sgp_usa_week <- sgp_usa %>%
-  mutate(week = week(date) - 8) # Set March 1 as Week 1 
+  mutate(week = week(date) - 8,
+         deaths_prop = deaths_per_mil/cases_per_mil*100) %>%
+  select(date, week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) %>%
+  arrange(date)
 ```
 
-
-```{r}
-sgp_usa_week %>%
-  mutate(death_prop = deaths_per_mil/cases_per_mil*100) %>%
-  select(week, country, cases_per_mil, deaths_per_mil, death_prop) %>%
+```{r weekly-summary-sgp-usa}
+summary_sgp_usa_week <- sgp_usa_week %>%
   group_by(week, country) %>%
-  summarise(avg_cases = sum(cases_per_mil),
-            avg_deaths = sum(deaths_per_mil),
-            death_prop = mean(death_prop))
+  summarise(cases_per_week = sum(cases_per_mil),
+            deaths_per_week = sum(deaths_per_mil),
+            deaths_prop = mean(deaths_prop)) # % of deaths per week
+
+kable(summary_sgp_usa_week, caption = "Total Cases and Deaths, and proportion of Deaths per week ")
 ```
 
+# Analysis
+
+Based on Figure \@ref(fig:sgp-usa-barchart)
+
+Based on Table \@ref(tab:weekly-summary-sgp-usa)
 
 
 \section*{Country XX2 and YY2}

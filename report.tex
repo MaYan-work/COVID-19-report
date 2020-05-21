@@ -72,6 +72,15 @@
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \IfFileExists{parskip.sty}{%
 \usepackage{parskip}
 }{% else
@@ -339,15 +348,146 @@
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{covid <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"Data/worldwidecases.csv"}\NormalTok{))}
+\NormalTok{covid <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"Data/worldwidecases.csv"}\NormalTok{)) }
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{nsmall =} \DecValTok{2}\NormalTok{) }\CommentTok{# setting decimal places to 2}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bel_usa <-}\StringTok{ }\NormalTok{covid }
+\NormalTok{sgp_usa <-}\StringTok{ }\NormalTok{covid }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{dmy}\NormalTok{(dateRep),}
+         \DataTypeTok{yday =} \KeywordTok{yday}\NormalTok{(date)) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{country =}\NormalTok{ countriesAndTerritories) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(countryterritoryCode }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"SGP"}\NormalTok{, }\StringTok{"USA"}\NormalTok{),}
+\NormalTok{         month }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{3}\OperatorTok{:}\DecValTok{5}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sgp_usa <-}\StringTok{ }\NormalTok{sgp_usa }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(country, yday) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{cases_per_mil =}\NormalTok{ (cases }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1000000} \OperatorTok{/}\StringTok{ }\NormalTok{popData2018)),}
+         \DataTypeTok{deaths_per_mil =}\NormalTok{ (deaths }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1000000} \OperatorTok{/}\StringTok{ }\NormalTok{popData2018)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sgp_usa }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{(}
+    \DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{,}
+    \DataTypeTok{width =} \FloatTok{0.3}\NormalTok{,}
+    \DataTypeTok{position =} \StringTok{"dodge"}\NormalTok{,}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ date, }\DataTypeTok{y =}\NormalTok{ cases_per_mil, }\DataTypeTok{colour =}\NormalTok{ country),}
+    \DataTypeTok{fill =} \StringTok{"white"}
+\NormalTok{  ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Dark2"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}
+    \DataTypeTok{x =}\NormalTok{ date,}
+    \DataTypeTok{y =}\NormalTok{ deaths_per_mil,}
+    \DataTypeTok{colour =}\NormalTok{ country,}
+    \DataTypeTok{group =}\NormalTok{ country}
+\NormalTok{  )) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Ignoring unknown parameters: binwidth, bins, pad
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{report_files/figure-latex/sgp-usa-barchart-1.pdf}
+\caption{\label{fig:sgp-usa-barchart}Total Deaths and Cases in SGP and USA from 01/03/2020 to 10/05/20}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sgp_usa_week <-}\StringTok{ }\NormalTok{sgp_usa }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{week =} \KeywordTok{week}\NormalTok{(date) }\OperatorTok{-}\StringTok{ }\DecValTok{8}\NormalTok{,}
+         \DataTypeTok{deaths_prop =}\NormalTok{ deaths_per_mil}\OperatorTok{/}\NormalTok{cases_per_mil}\OperatorTok{*}\DecValTok{100}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(date, week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{summary_sgp_usa_week <-}\StringTok{ }\NormalTok{sgp_usa_week }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(week, country) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{cases_per_week =} \KeywordTok{sum}\NormalTok{(cases_per_mil),}
+            \DataTypeTok{deaths_per_week =} \KeywordTok{sum}\NormalTok{(deaths_per_mil),}
+            \DataTypeTok{deaths_prop =} \KeywordTok{mean}\NormalTok{(deaths_prop)) }\CommentTok{# % of deaths per week}
+
+\KeywordTok{kable}\NormalTok{(summary_sgp_usa_week, }\DataTypeTok{caption =} \StringTok{"Total Cases and Deaths, and proportion of Deaths per week "}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:weekly-summary-sgp-usa}Total Cases and Deaths, and proportion of Deaths per week }
+\centering
+\begin{tabular}[t]{r|l|r|r|r}
+\hline
+week & country & cases\_per\_week & deaths\_per\_week & deaths\_prop\\
+\hline
+1 & Singapore & 1.7734660 & 0.0000000 & 0.0000000\\
+\hline
+1 & United\_States\_of\_America & 0.1130919 & 0.0183392 & 22.3015873\\
+\hline
+2 & Singapore & 9.2220230 & 0.0000000 & 0.0000000\\
+\hline
+2 & United\_States\_of\_America & 1.9898068 & 0.0611308 & 4.5340728\\
+\hline
+3 & Singapore & 14.7197675 & 0.0000000 & 0.0000000\\
+\hline
+3 & United\_States\_of\_America & 11.9418976 & 0.1803358 & 1.4575217\\
+\hline
+4 & Singapore & 47.1741948 & 0.3546932 & 0.6079027\\
+\hline
+4 & United\_States\_of\_America & 127.7052532 & 1.5435522 & 1.2122511\\
+\hline
+5 & Singapore & 59.4111100 & 0.1773466 & NaN\\
+\hline
+5 & United\_States\_of\_America & 361.2156582 & 7.8858705 & 2.1517817\\
+\hline
+6 & Singapore & 94.1710430 & 0.5320398 & 0.6000851\\
+\hline
+6 & United\_States\_of\_America & 622.2379701 & 23.8990779 & 3.8497613\\
+\hline
+7 & Singapore & 273.6457991 & 0.5320398 & NaN\\
+\hline
+7 & United\_States\_of\_America & 655.3158344 & 38.6957829 & 5.9188037\\
+\hline
+8 & Singapore & 903.7582581 & 0.3546932 & 0.0657021\\
+\hline
+8 & United\_States\_of\_America & 627.0734146 & 57.7380205 & 9.1763966\\
+\hline
+9 & Singapore & 1136.6143400 & 0.5320398 & NaN\\
+\hline
+9 & United\_States\_of\_America & 613.4443075 & 41.8929226 & 7.1853427\\
+\hline
+10 & Singapore & 772.3444298 & 0.7093864 & 0.0960872\\
+\hline
+10 & United\_States\_of\_America & 587.4148220 & 38.7844225 & 6.6317524\\
+\hline
+11 & Singapore & 652.9901700 & 0.3546932 & 0.0507614\\
+\hline
+11 & United\_States\_of\_America & 394.0092644 & 30.1374739 & 7.7081463\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{analysis}{%
+\section{Analysis}\label{analysis}}
+
+Based on Figure \ref{fig:sgp-usa-barchart}
+
+Based on Table \ref{tab:weekly-summary-sgp-usa}
 
 \section*{Country XX2 and YY2}
 
