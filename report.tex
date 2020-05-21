@@ -190,11 +190,11 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ XXX XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Yan Ma}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
-\lfoot{\sf XXXX, XXXX, XXX: \@date}
+\lfoot{\sf Ma, XXXX, XXX: \@date}
 \makeatother
 
 
@@ -297,7 +297,56 @@
 
 \section*{Country XX1 and YY1"}
 
-\section*{Country XX2 and YY2}
+\section*{Country China and Japan}
+
+This section would do some analysis on China and Japan.
+
+\begin{table}[!h]
+
+\caption{\label{tab:tab1}Total cases and deaths in China and Japan}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+countryterritoryCode & total\_cases & total\_deaths\\
+\hline
+\rowcolor{gray!6}  CHN & 83991 & 4637\\
+\hline
+JPN & 15747 & 613\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:tab1} shows the total cases and deaths of COVID-19 in China and Japan from December 2019 to May 2020.
+
+\clearpage
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/fig1-1} 
+
+}
+
+\caption{Cases by time}\label{fig:fig1}
+\end{figure}
+
+Figure \ref{fig:fig1} Shows the trend of cases reported every day in China and Japan.
+
+For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12. See more information \href{https://www.worldometers.info/coronavirus/how-to-interpret-feb-12-case-surge/}{here}. If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
+
+For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March. The cases in Jpan began to increase in early February, this is because an outbreakamong passengers and crew on a cruise ship led to quaran-tine of approximately 3,700 passengers and crew that began on February 3, and lasted for nearly 4 weeks at the Port of Yokohama. By February 9, 20 cases had occurred among the ship's crew members. By the end of quarantine, approximately 700 cases had been laboratory-confirmed among passengers and crew \textcite{kakimoto2020initial} .
+
+\hypertarget{the-packages-used-in-this-section-is}{%
+\section{The packages used in this section is:}\label{the-packages-used-in-this-section-is}}
+
+tidyverse: \textcite{tidyverse}
+
+readr: \textcite{readr}
+
+kableExtra: \textcite{kableExtra}
+
+bookdown: \textcite{bookdown}
+
+lubridate: \textcite{lubridate}
 
 \section*{Country XX3 and YY3}
 
