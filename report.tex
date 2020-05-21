@@ -199,11 +199,11 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Brendi Ang}\\ {\sf\large BSc\\[0.5cm]} \sf\Large\textbf{ Reports XXXX}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Brendi Ang}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Yan Ma}\\ {\sf\large BSc\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
-\lfoot{\sf Ang, XXXX, XXX: \@date}
+\lfoot{\sf Ang, Ma, XXX: \@date}
 \makeatother
 
 
@@ -370,7 +370,45 @@ Based on Table \ref{tab:summary-sgp-usa-week}, Singapore's cases increased by a 
 
 On the other hand, \emph{US} cases nearly doubled (0.72\%) from approximately the end of March to the start of April. In contrary to Singapore's cases, confirmed cases in \emph{US} seemed to subside at the end of April 2020 after all states implemented lockdown policies. However, Table \ref{tab:summary-sgp-usa-week} demonstrated that the proportion of death rates in \emph{US} was not proportionate to the decrease in the cases per week.
 
-\section*{Country XX2 and YY2}
+\clearpage
+
+\section*{Country China and Japan}
+
+This section would do some analysis on China and Japan.
+
+\begin{table}
+
+\caption{\label{tab:tab1}Total cases and deaths in China and Japan}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+countryterritoryCode & total\_cases & total\_deaths\\
+\hline
+CHN & 83991 & 4637\\
+\hline
+JPN & 15747 & 613\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:tab1} shows the total cases and deaths of COVID-19 in China and Japan from December 2019 to May 2020.
+
+\clearpage
+
+\begin{figure}
+
+{\centering \includegraphics{report_files/figure-latex/fig1-1} 
+
+}
+
+\caption{Cases by time}\label{fig:fig1}
+\end{figure}
+
+Figure \ref{fig:fig1} Shows the trend of cases reported every day in China and Japan.
+
+For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12. See more information \href{https://www.worldometers.info/coronavirus/how-to-interpret-feb-12-case-surge/}{here}. If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
+
+For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March. The cases in Jpan began to increase in early February, this is because an outbreakamong passengers and crew on a cruise ship led to quaran-tine of approximately 3,700 passengers and crew that began on February 3, and lasted for nearly 4 weeks at the Port of Yokohama. By February 9, 20 cases had occurred among the ship's crew members. By the end of quarantine, approximately 700 cases had been laboratory-confirmed among passengers and crew \textcite{kakimoto2020initial} .
 
 \section*{Country XX3 and YY3}
 

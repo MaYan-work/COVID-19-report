@@ -1,0 +1,23 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'report.blg'
+[71] biber-darwin:322> INFO - === Thu May 21, 2020, 20:45:33
+[84] Biber.pm:415> INFO - Reading 'report.bcf'
+[169] Biber.pm:943> INFO - Found 10 citekeys in bib section 0
+[181] Biber.pm:4256> INFO - Processing section 0
+[182] Utils.pm:75> INFO - Globbing data source 'references.bib'
+[182] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
+[191] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
+[192] bibtex.pm:1653> INFO - LaTeX decoding ...
+[212] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
+[213] Utils.pm:304> WARN - Duplicate entry key: 'tidyverse' in file 'references.bib', skipping ...
+[214] Utils.pm:304> WARN - Duplicate entry key: 'readr' in file 'references.bib', skipping ...
+[214] Utils.pm:304> WARN - Possible typo (case mismatch) between datasource keys: 'KableExtra' and 'kableExtra' in file 'references.bib'
+[214] Utils.pm:304> WARN - Duplicate entry key: 'bookdown' in file 'references.bib', skipping ...
+[214] Utils.pm:304> WARN - Duplicate entry key: 'lubridate' in file 'references.bib', skipping ...
+[304] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[304] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[304] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[304] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[318] bbl.pm:652> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[326] bbl.pm:755> INFO - Output to report.bbl
+[326] Biber.pm:128> INFO - WARNINGS: 5

@@ -1,0 +1,506 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{fowler2020effect}{article}{}
+      \name{author}{4}{}{%
+        {{hash=3997b2ee637a4f0e9edc27c381960732}{%
+           family={Fowler},
+           familyi={F\bibinitperiod},
+           given={James\bibnamedelima H},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=0496911bc63fb11a7b06f52ce143973b}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Seth\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=176b5576573497c5869f830959000596}{%
+           family={Levin},
+           familyi={L\bibinitperiod},
+           given={Remy},
+           giveni={R\bibinitperiod}}}%
+        {{hash=dd237e510deddfd477cdc0dc921f27b7}{%
+           family={Obradovich},
+           familyi={O\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{97164b577edec85cc98efa5f0b97a05b}
+      \strng{fullhash}{4183e7171ba1c500c498b9b344b7afb0}
+      \strng{bibnamehash}{4183e7171ba1c500c498b9b344b7afb0}
+      \strng{authorbibnamehash}{4183e7171ba1c500c498b9b344b7afb0}
+      \strng{authornamehash}{97164b577edec85cc98efa5f0b97a05b}
+      \strng{authorfullhash}{4183e7171ba1c500c498b9b344b7afb0}
+      \field{sortinit}{F}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2004.06098}
+      \field{title}{The effect of stay-at-home orders on COVID-19 infections in the United States}
+      \field{year}{2020}
+    \endentry
+    \entry{lubridate}{article}{}
+      \name{author}{2}{}{%
+        {{hash=de759ef99fad34b8426e26035eb4a20b}{%
+           family={Grolemund},
+           familyi={G\bibinitperiod},
+           given={Garrett},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{d995e6d64fb4622ac7a621933cfeac6e}
+      \strng{fullhash}{d995e6d64fb4622ac7a621933cfeac6e}
+      \strng{bibnamehash}{d995e6d64fb4622ac7a621933cfeac6e}
+      \strng{authorbibnamehash}{d995e6d64fb4622ac7a621933cfeac6e}
+      \strng{authornamehash}{d995e6d64fb4622ac7a621933cfeac6e}
+      \strng{authorfullhash}{d995e6d64fb4622ac7a621933cfeac6e}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistical Software}
+      \field{number}{3}
+      \field{title}{Dates and Times Made Easy with {lubridate}}
+      \field{volume}{40}
+      \field{year}{2011}
+      \field{pages}{1\bibrangedash 25}
+      \range{pages}{25}
+      \verb{urlraw}
+      \verb http://www.jstatsoft.org/v40/i03/
+      \endverb
+      \verb{url}
+      \verb http://www.jstatsoft.org/v40/i03/
+      \endverb
+    \endentry
+    \entry{kakimoto2020initial}{article}{}
+      \name{author}{6}{}{%
+        {{hash=63c845d2b3c132d84c7465bd716e9564}{%
+           family={Kakimoto},
+           familyi={K\bibinitperiod},
+           given={Kensaku},
+           giveni={K\bibinitperiod}}}%
+        {{hash=8a602443a5512e917fe659f1b2124b94}{%
+           family={Kamiya},
+           familyi={K\bibinitperiod},
+           given={Hajime},
+           giveni={H\bibinitperiod}}}%
+        {{hash=70e4a617746a66953135cf223047b8fb}{%
+           family={Yamagishi},
+           familyi={Y\bibinitperiod},
+           given={Takuya},
+           giveni={T\bibinitperiod}}}%
+        {{hash=419e4564814bc1ddc6d623c2f46b6da8}{%
+           family={Matsui},
+           familyi={M\bibinitperiod},
+           given={Tamano},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bc7a74b33995b8a3c9df44f3d61bf12b}{%
+           family={Suzuki},
+           familyi={S\bibinitperiod},
+           given={Motoi},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b133e5746ed62f077102ed7713d866dc}{%
+           family={Wakita},
+           familyi={W\bibinitperiod},
+           given={Takaji},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{6aceb785634ba3f3cb722df7d1651bfe}
+      \strng{fullhash}{bfcfafd143707bf27d1a6f47116741b7}
+      \strng{bibnamehash}{bfcfafd143707bf27d1a6f47116741b7}
+      \strng{authorbibnamehash}{bfcfafd143707bf27d1a6f47116741b7}
+      \strng{authornamehash}{6aceb785634ba3f3cb722df7d1651bfe}
+      \strng{authorfullhash}{bfcfafd143707bf27d1a6f47116741b7}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Initial investigation of transmission of COVID-19 among crew members during quarantine of a cruise ship—Yokohama, Japan, February 2020}
+      \field{year}{2020}
+    \endentry
+    \entry{sgcb2}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a594e56f97569ae3e4aa5a660cd9f3c7}{%
+           family={Sim},
+           familyi={S\bibinitperiod},
+           given={Dewey},
+           giveni={D\bibinitperiod}}}%
+        {{hash=97326fff7aaa1f9b7946ff2e184894c9}{%
+           family={Kok},
+           familyi={K\bibinitperiod},
+           given={Xinghui},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{997601fc2c4ec8d28518259701664410}
+      \strng{fullhash}{997601fc2c4ec8d28518259701664410}
+      \strng{bibnamehash}{997601fc2c4ec8d28518259701664410}
+      \strng{authorbibnamehash}{997601fc2c4ec8d28518259701664410}
+      \strng{authornamehash}{997601fc2c4ec8d28518259701664410}
+      \strng{authorfullhash}{997601fc2c4ec8d28518259701664410}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The South China Morning Post}
+      \field{title}{How did migrant worker dormitories become Singapore’s biggest coronavirus cluster?}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.scmp.com/week-asia/explained/article/3080466/how-did-migrant-worker-dormitories-become-singapores-biggest
+      \endverb
+      \verb{url}
+      \verb https://www.scmp.com/week-asia/explained/article/3080466/how-did-migrant-worker-dormitories-become-singapores-biggest
+      \endverb
+    \endentry
+    \entry{tidyverse}{article}{}
+      \name{author}{24}{}{%
+        {{hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod}}}%
+        {{hash=0c11220b22f907dc3709ff23c6b023e5}{%
+           family={Averick},
+           familyi={A\bibinitperiod},
+           given={Mara},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0f88b724c9f070dbceda00a5027d25bb}{%
+           family={Bryan},
+           familyi={B\bibinitperiod},
+           given={Jennifer},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3ad4f9244dbfff3b38eeeec6d91fbd7d}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Winston},
+           giveni={W\bibinitperiod}}}%
+        {{hash=28ee445d433874efb86495f4c4e9d559}{%
+           family={McGowan},
+           familyi={M\bibinitperiod},
+           given={Lucy\bibnamedelima D'Agostino},
+           giveni={L\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=3bd2c624a8715b2aeffcecaa24f3d017}{%
+           family={François},
+           familyi={F\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=de759ef99fad34b8426e26035eb4a20b}{%
+           family={Grolemund},
+           familyi={G\bibinitperiod},
+           given={Garrett},
+           giveni={G\bibinitperiod}}}%
+        {{hash=83154656fbd4fc02a9e468c493204cf9}{%
+           family={Hayes},
+           familyi={H\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4caae9be043b32573c94b11203a4a2fe}{%
+           family={Henry},
+           familyi={H\bibinitperiod},
+           given={Lionel},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5d26572f4d1de0fce70db1a8cfb6b0d1}{%
+           family={Hester},
+           familyi={H\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3305789acf03200ed22f154007d4fab9}{%
+           family={Kuhn},
+           familyi={K\bibinitperiod},
+           given={Max},
+           giveni={M\bibinitperiod}}}%
+        {{hash=baa847ed0a47fe330db451600329cf32}{%
+           family={Pedersen},
+           familyi={P\bibinitperiod},
+           given={Thomas\bibnamedelima Lin},
+           giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ac004a72f317bb04dcf539660a0feee0}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Evan},
+           giveni={E\bibinitperiod}}}%
+        {{hash=5769225f722449dff0c3f62aa09d2f6e}{%
+           family={Bache},
+           familyi={B\bibinitperiod},
+           given={Stephan\bibnamedelima Milton},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=1435ca4f08e53208e1c34297357afa80}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0f4f7df4d18c1270721b575fc1288184}{%
+           family={Ooms},
+           familyi={O\bibinitperiod},
+           given={Jeroen},
+           giveni={J\bibinitperiod}}}%
+        {{hash=42a6c387e6c733bd0db8180d2bbacd30}{%
+           family={Robinson},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d318a128b5a51b4b776ac61c1f4f7e99}{%
+           family={Seidel},
+           familyi={S\bibinitperiod},
+           given={Dana\bibnamedelima Paige},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=ac149bcd683a561a218e8dc1c1529489}{%
+           family={Spinu},
+           familyi={S\bibinitperiod},
+           given={Vitalie},
+           giveni={V\bibinitperiod}}}%
+        {{hash=cc134fc26d52494111fa09f0a1546069}{%
+           family={Takahashi},
+           familyi={T\bibinitperiod},
+           given={Kohske},
+           giveni={K\bibinitperiod}}}%
+        {{hash=858f3a61393526cfc73cb860925a277a}{%
+           family={Vaughan},
+           familyi={V\bibinitperiod},
+           given={Davis},
+           giveni={D\bibinitperiod}}}%
+        {{hash=acc6b5a79d7cad33c02e41491584028f}{%
+           family={Wilke},
+           familyi={W\bibinitperiod},
+           given={Claus},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ff79890fd7a7f58816ee7360c25d812e}{%
+           family={Woo},
+           familyi={W\bibinitperiod},
+           given={Kara},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f2f301536c9cd620e39deb5fad8712ff}{%
+           family={Yutani},
+           familyi={Y\bibinitperiod},
+           given={Hiroaki},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0731a35ef88164c57848ecb7ca5f8ca}
+      \strng{fullhash}{60da0af5902bcdfab541641a492d8d42}
+      \strng{bibnamehash}{60da0af5902bcdfab541641a492d8d42}
+      \strng{authorbibnamehash}{60da0af5902bcdfab541641a492d8d42}
+      \strng{authornamehash}{e0731a35ef88164c57848ecb7ca5f8ca}
+      \strng{authorfullhash}{60da0af5902bcdfab541641a492d8d42}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Open Source Software}
+      \field{number}{43}
+      \field{title}{Welcome to the {tidyverse}}
+      \field{volume}{4}
+      \field{year}{2019}
+      \field{pages}{1686}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.21105/joss.01686
+      \endverb
+    \endentry
+    \entry{readr}{manual}{}
+      \name{author}{3}{}{%
+        {{hash=1d0f6977ce2d043e298a59a1cd75b7ef}{%
+           family={Wickham},
+           familyi={W\bibinitperiod},
+           given={Hadley},
+           giveni={H\bibinitperiod}}}%
+        {{hash=5d26572f4d1de0fce70db1a8cfb6b0d1}{%
+           family={Hester},
+           familyi={H\bibinitperiod},
+           given={Jim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=6c92aec390febcf0ca8a4e7c68c5ea6c}{%
+           family={Francois},
+           familyi={F\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{cdfdd99d0179bde72ed2b8d51aa41418}
+      \strng{fullhash}{cdfdd99d0179bde72ed2b8d51aa41418}
+      \strng{bibnamehash}{cdfdd99d0179bde72ed2b8d51aa41418}
+      \strng{authorbibnamehash}{cdfdd99d0179bde72ed2b8d51aa41418}
+      \strng{authornamehash}{cdfdd99d0179bde72ed2b8d51aa41418}
+      \strng{authorfullhash}{cdfdd99d0179bde72ed2b8d51aa41418}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{R package version 1.3.1}
+      \field{title}{readr: Read Rectangular Text Data}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://CRAN.R-project.org/package=readr
+      \endverb
+      \verb{url}
+      \verb https://CRAN.R-project.org/package=readr
+      \endverb
+    \endentry
+    \entry{sgcb}{article}{}
+      \name{author}{2}{}{%
+        {{hash=290b0f847112b5c5ccf1efc8bf7f3744}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Cara},
+           giveni={C\bibinitperiod}}}%
+        {{hash=00a5d5d25d843a3d0ed882af29216ed1}{%
+           family={Tan},
+           familyi={T\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{919f348ad8a9ddd49342034153d21997}
+      \strng{fullhash}{919f348ad8a9ddd49342034153d21997}
+      \strng{bibnamehash}{919f348ad8a9ddd49342034153d21997}
+      \strng{authorbibnamehash}{919f348ad8a9ddd49342034153d21997}
+      \strng{authornamehash}{919f348ad8a9ddd49342034153d21997}
+      \strng{authorfullhash}{919f348ad8a9ddd49342034153d21997}
+      \field{sortinit}{W}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Straits Time}
+      \field{title}{Coronavirus: Empty trains and quiet streets as Singapore enters day 1 of 'circuit breaker' mode}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.straitstimes.com/singapore/coronavirus-empty-trains-and-quiet-streets-as-singapore-enters-day-1-of-circuit-breaker
+      \endverb
+      \verb{url}
+      \verb https://www.straitstimes.com/singapore/coronavirus-empty-trains-and-quiet-streets-as-singapore-enters-day-1-of-circuit-breaker
+      \endverb
+    \endentry
+    \entry{bookdown2}{book}{}
+      \name{author}{1}{}{%
+        {{hash=25ce25b9d444076e0963bcf9fa3a6f92}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Yihui},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton, Florida}%
+      }
+      \list{publisher}{2}{%
+        {Chapman}%
+        {Hall/CRC}%
+      }
+      \strng{namehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{fullhash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{bibnamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authorbibnamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authornamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authorfullhash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \field{extraname}{1}
+      \field{sortinit}{X}
+      \field{sortinithash}{e90038f30fa4b9ce59606fc8347e3cc7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{ISBN 978-1138700109}
+      \field{title}{bookdown: Authoring Books and Technical Documents with {R} Markdown}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://github.com/rstudio/bookdown
+      \endverb
+      \verb{url}
+      \verb https://github.com/rstudio/bookdown
+      \endverb
+    \endentry
+    \entry{bookdown}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=25ce25b9d444076e0963bcf9fa3a6f92}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Yihui},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{fullhash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{bibnamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authorbibnamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authornamehash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \strng{authorfullhash}{25ce25b9d444076e0963bcf9fa3a6f92}
+      \field{extraname}{2}
+      \field{sortinit}{X}
+      \field{sortinithash}{e90038f30fa4b9ce59606fc8347e3cc7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{R package version 0.19}
+      \field{title}{bookdown: Authoring Books and Technical Documents with R Markdown}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://github.com/rstudio/bookdown
+      \endverb
+      \verb{url}
+      \verb https://github.com/rstudio/bookdown
+      \endverb
+    \endentry
+    \entry{KableExtra}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=9d368ab66d67ab2a2f3f79695b175856}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{9d368ab66d67ab2a2f3f79695b175856}
+      \strng{fullhash}{9d368ab66d67ab2a2f3f79695b175856}
+      \strng{bibnamehash}{9d368ab66d67ab2a2f3f79695b175856}
+      \strng{authorbibnamehash}{9d368ab66d67ab2a2f3f79695b175856}
+      \strng{authornamehash}{9d368ab66d67ab2a2f3f79695b175856}
+      \strng{authorfullhash}{9d368ab66d67ab2a2f3f79695b175856}
+      \field{sortinit}{Z}
+      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{R package version 1.1.0}
+      \field{title}{kableExtra: Construct Complex Table with 'kable' and Pipe Syntax}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://CRAN.R-project.org/package=kableExtra
+      \endverb
+      \verb{url}
+      \verb https://CRAN.R-project.org/package=kableExtra
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
