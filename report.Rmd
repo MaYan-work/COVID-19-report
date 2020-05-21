@@ -3,10 +3,10 @@ title: "Corona Virus Report"
 author:
 - familyname: Effendy
   othernames: Jimmy
-  address: Monash Universtidy
-  email: XXX
+  address: Monash Universty
+  email: jef0001@student.monash.edu
   correspondingauthor: true
-  qualifications:  XXX
+  qualifications:  B.Com
 - familyname: XXXX
   othernames: Reports
   address: XXX
@@ -35,6 +35,10 @@ output:
     citation_package: biblatex
     toc: false
 ---
+
+```{r global, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
 
 ```{r , echo = FALSE, message = FALSE, warning = FALSE}
 # Libraries
@@ -66,17 +70,9 @@ ita_usa %>% filter(month != 5) %>%
   geom_line()
 ```
 
-Figure \@ref(fig:cases-plot) reflects the number of COVID-19 cases in Italy and USA from January to May 2020.
+Figure \@ref(fig:cases-plot) reflects the number of COVID-19 cases in Italy and USA from January to May 2020. The total number of cases are reflected in the y axis, and the x axis represents the period (month). It is reflected in the figure that COVID-19 cases did not start in Italy and USA until March where there was no significant difference between the two countries. There was a slight increase in COVID-19 cases in April in Italy. However, the number of cases in the US rose significantly in April. By the end of April, the number of cases in the US is approximately four times larger in comparison to Italy. According to [@vox] the number of COVID-19 cases in the US make up approximately a third of the world's cases.
 
-The total number of cases are reflected in the y axis, and the x axis represents the period (month).
-
-It is reflected in the figure that COVID-19 cases did not start in Italy and USA until March where there was no significant difference between the two countries.
-
-There was a slight increase in COVID-19 cases in April in Italy. However, the number of cases in the US rose significantly in April.
-
-By the end of April, the number of cases in the US is approximately four times larger comapred to Italy.
-
-According to [@vox] the number of COVID-19 cases in the US make up approximately a third of the world's cases.
+\clearpage
 
 
 ```{r death-table, warning = FALSE}
@@ -87,13 +83,7 @@ ita_usa %>% select(countriesAndTerritories, dateRep, deaths) %>%
   kable_styling(bootstrap_options = c("striped","hover"))
 ```
 
-Table \@ref(tab:death-table) shows the top 5 largest daily in COVID-19 related deaths in Italy and USA.
-
-The table shows that the 5 largest amount of deaths occured in one day happened in the US.
-
-These mostly happened in the third and fourth week of April.
-
-The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.
+Table \@ref(tab:death-table) shows the top 5 largest daily in COVID-19 related deaths in Italy and USA. The table shows that the 5 largest amount of deaths occured in one day happened in the US. These mostly happened in the third and fourth week of April. The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.The second highest occured on the same week on the 18th of April with 3,770 number of deaths.
 
 \section*{Country XX2 and YY2}
 This section would do some analysis on China and Japan.
