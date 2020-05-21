@@ -344,12 +344,12 @@
 \begin{document}
 \titlepage
 
-\section*{Country XX1 and YY1"}
+\section*{Country Singapore and United States of America"}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{covid <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"Data/worldwidecases.csv"}\NormalTok{)) }
-\KeywordTok{options}\NormalTok{(}\DataTypeTok{nsmall =} \DecValTok{2}\NormalTok{) }\CommentTok{# setting decimal places to 2}
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{digits =} \DecValTok{2}\NormalTok{) }\CommentTok{# format decimal places to 2}
 \end{Highlighting}
 \end{Shaded}
 
@@ -384,6 +384,7 @@
     \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ date, }\DataTypeTok{y =}\NormalTok{ cases_per_mil, }\DataTypeTok{colour =}\NormalTok{ country),}
     \DataTypeTok{fill =} \StringTok{"white"}
 \NormalTok{  ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"New Cases and Deaths (per million)"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_color_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Dark2"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}
     \DataTypeTok{x =}\NormalTok{ date,}
@@ -410,7 +411,7 @@
 \NormalTok{sgp_usa_week <-}\StringTok{ }\NormalTok{sgp_usa }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{week =} \KeywordTok{week}\NormalTok{(date) }\OperatorTok{-}\StringTok{ }\DecValTok{8}\NormalTok{,}
          \DataTypeTok{deaths_prop =}\NormalTok{ deaths_per_mil}\OperatorTok{/}\NormalTok{cases_per_mil}\OperatorTok{*}\DecValTok{100}\NormalTok{) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{select}\NormalTok{(date, week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{select}\NormalTok{(date, month,  week, country, cases_per_mil, deaths_per_mil, deaths_prop, yday) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(date)}
 \end{Highlighting}
 \end{Shaded}
@@ -418,66 +419,71 @@
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{summary_sgp_usa_week <-}\StringTok{ }\NormalTok{sgp_usa_week }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(week, country) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(country, week, month) }\OperatorTok{%>%}
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{cases_per_week =} \KeywordTok{sum}\NormalTok{(cases_per_mil),}
             \DataTypeTok{deaths_per_week =} \KeywordTok{sum}\NormalTok{(deaths_per_mil),}
-            \DataTypeTok{deaths_prop =} \KeywordTok{mean}\NormalTok{(deaths_prop)) }\CommentTok{# % of deaths per week}
+            \DataTypeTok{deaths_prop =} \KeywordTok{mean}\NormalTok{(deaths_prop, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)) }\CommentTok{# % of deaths per week}
 
-\KeywordTok{kable}\NormalTok{(summary_sgp_usa_week, }\DataTypeTok{caption =} \StringTok{"Total Cases and Deaths, and proportion of Deaths per week "}\NormalTok{)}
+\KeywordTok{kable}\NormalTok{(summary_sgp_usa_week, }\DataTypeTok{caption =} \StringTok{"Total Cases and Deaths, and Proportion of Deaths per week"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{kable_styling}\NormalTok{(}\DataTypeTok{bootstrap_options =} \KeywordTok{c}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\StringTok{"hover"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{table}
 
-\caption{\label{tab:weekly-summary-sgp-usa}Total Cases and Deaths, and proportion of Deaths per week }
+\caption{\label{tab:summary-sgp-usa-week}Total Cases and Deaths, and Proportion of Deaths per week}
 \centering
-\begin{tabular}[t]{r|l|r|r|r}
+\begin{tabular}[t]{l|r|r|r|r|r}
 \hline
-week & country & cases\_per\_week & deaths\_per\_week & deaths\_prop\\
+country & week & month & cases\_per\_week & deaths\_per\_week & deaths\_prop\\
 \hline
-1 & Singapore & 1.7734660 & 0.0000000 & 0.0000000\\
+Singapore & 1 & 3 & 1.77 & 0.00 & 0.00\\
 \hline
-1 & United\_States\_of\_America & 0.1130919 & 0.0183392 & 22.3015873\\
+Singapore & 2 & 3 & 9.22 & 0.00 & 0.00\\
 \hline
-2 & Singapore & 9.2220230 & 0.0000000 & 0.0000000\\
+Singapore & 3 & 3 & 14.72 & 0.00 & 0.00\\
 \hline
-2 & United\_States\_of\_America & 1.9898068 & 0.0611308 & 4.5340728\\
+Singapore & 4 & 3 & 47.17 & 0.35 & 0.61\\
 \hline
-3 & Singapore & 14.7197675 & 0.0000000 & 0.0000000\\
+Singapore & 5 & 3 & 59.41 & 0.18 & 0.23\\
 \hline
-3 & United\_States\_of\_America & 11.9418976 & 0.1803358 & 1.4575217\\
+Singapore & 6 & 4 & 94.17 & 0.53 & 0.60\\
 \hline
-4 & Singapore & 47.1741948 & 0.3546932 & 0.6079027\\
+Singapore & 7 & 4 & 273.65 & 0.53 & 0.13\\
 \hline
-4 & United\_States\_of\_America & 127.7052532 & 1.5435522 & 1.2122511\\
+Singapore & 8 & 4 & 903.76 & 0.35 & 0.07\\
 \hline
-5 & Singapore & 59.4111100 & 0.1773466 & NaN\\
+Singapore & 9 & 4 & 1136.61 & 0.53 & 0.06\\
 \hline
-5 & United\_States\_of\_America & 361.2156582 & 7.8858705 & 2.1517817\\
+Singapore & 10 & 4 & 216.01 & 0.00 & 0.00\\
 \hline
-6 & Singapore & 94.1710430 & 0.5320398 & 0.6000851\\
+Singapore & 10 & 5 & 556.34 & 0.71 & 0.13\\
 \hline
-6 & United\_States\_of\_America & 622.2379701 & 23.8990779 & 3.8497613\\
+Singapore & 11 & 5 & 652.99 & 0.35 & 0.05\\
 \hline
-7 & Singapore & 273.6457991 & 0.5320398 & NaN\\
+United\_States\_of\_America & 1 & 3 & 0.11 & 0.02 & 22.30\\
 \hline
-7 & United\_States\_of\_America & 655.3158344 & 38.6957829 & 5.9188037\\
+United\_States\_of\_America & 2 & 3 & 1.99 & 0.06 & 4.53\\
 \hline
-8 & Singapore & 903.7582581 & 0.3546932 & 0.0657021\\
+United\_States\_of\_America & 3 & 3 & 11.94 & 0.18 & 1.46\\
 \hline
-8 & United\_States\_of\_America & 627.0734146 & 57.7380205 & 9.1763966\\
+United\_States\_of\_America & 4 & 3 & 127.71 & 1.54 & 1.21\\
 \hline
-9 & Singapore & 1136.6143400 & 0.5320398 & NaN\\
+United\_States\_of\_America & 5 & 3 & 361.22 & 7.89 & 2.15\\
 \hline
-9 & United\_States\_of\_America & 613.4443075 & 41.8929226 & 7.1853427\\
+United\_States\_of\_America & 6 & 4 & 622.24 & 23.90 & 3.85\\
 \hline
-10 & Singapore & 772.3444298 & 0.7093864 & 0.0960872\\
+United\_States\_of\_America & 7 & 4 & 655.32 & 38.70 & 5.92\\
 \hline
-10 & United\_States\_of\_America & 587.4148220 & 38.7844225 & 6.6317524\\
+United\_States\_of\_America & 8 & 4 & 627.07 & 57.74 & 9.18\\
 \hline
-11 & Singapore & 652.9901700 & 0.3546932 & 0.0507614\\
+United\_States\_of\_America & 9 & 4 & 613.44 & 41.89 & 7.19\\
 \hline
-11 & United\_States\_of\_America & 394.0092644 & 30.1374739 & 7.7081463\\
+United\_States\_of\_America & 10 & 4 & 157.28 & 14.43 & 9.15\\
+\hline
+United\_States\_of\_America & 10 & 5 & 430.13 & 24.35 & 5.62\\
+\hline
+United\_States\_of\_America & 11 & 5 & 394.01 & 30.14 & 7.71\\
 \hline
 \end{tabular}
 \end{table}
@@ -485,9 +491,15 @@ week & country & cases\_per\_week & deaths\_per\_week & deaths\_prop\\
 \hypertarget{analysis}{%
 \section{Analysis}\label{analysis}}
 
-Based on Figure \ref{fig:sgp-usa-barchart}
+This report examines the confirmed COVID-19 cases and deaths recorded in Singapore and the United States (\emph{US}) from the start of March to 10 May 2020. Due to the significant difference in population size, the cases and deaths are scaled to per million people of each country's population for better comparison.
 
-Based on Table \ref{tab:weekly-summary-sgp-usa}
+Figure \ref{fig:sgp-usa-barchart} displays the number of new cases in Singapore and \emph{US}. The x-axis shows the number of new cases and deaths on a given day and the y-axis represents each date. It is manifest that confirmed cases in both countries started to pick up in mid-March 2020. There was a gradual increase in new cases in \emph{US} in the last two weeks of March, where it stayed relatively constant to mid-May. In Singapore, an exponential increase in confirmed cases can be observed in mid-April', where the new confirmed cases overtook the US in relative terms (\emph{i.e.} per 1 million). Although the confirmed cases were higher in Singapore, the death rates in the \emph{US} were evidently greater, with Singapore staying relatively constant at 0\%.
+
+To investigate further, we observe the start dates of the lockdown policy in each country. In Singapore, the lockdown started at the end of the first week of April, 07/04/2020 (\textcite{sgcb}). In USA, the effective dates were different in each state, California was the first to enforce it on 19/03/2020 while South Carolina was the last to carry it out on 07/04/2020 (\textcite{fowler2020effect}).
+
+Based on Table \ref{tab:summary-sgp-usa-week}, Singapore's cases increased by a staggering 1103.91\% from the first week to the last week of April although lockdown and social distancing protocols were in effect. This surge is attributed to the surge in infections among migrant worker population staying in dormitories, which accounted for most of the confirmed cases (\textcite{sgcb2}).
+
+On the other hand, \emph{US} cases nearly doubled (0.72\%) from approximately the end of March to the start of April. In contrary to Singapore's cases, confirmed cases in \emph{US} seemed to subside at the end of April 2020 after all states implemented lockdown policies. However, Table \ref{tab:summary-sgp-usa-week} demonstrated that the proportion of death rates in \emph{US} was not proportionate to the decrease in the cases per week.
 
 \section*{Country XX2 and YY2}
 
