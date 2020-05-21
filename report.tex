@@ -199,11 +199,11 @@
 \DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace}
 \makeatother
 
-\author{\sf\Large\textbf{ Brendi Ang}\\ {\sf\large XXX\\[0.5cm]} \sf\Large\textbf{ Yan Ma}\\ {\sf\large BSc\\[0.5cm]} \sf\Large\textbf{ XXX XXX}\\ {\sf\large XXX\\[0.5cm]}}
+\author{\sf\Large\textbf{ Jimmy Effendy}\\ {\sf\large BSc\\[0.5cm]} \sf\Large\textbf{ Brendi Ang}\\ {\sf\large BSc\\[0.5cm]} \sf\Large\textbf{ Yan Ma}\\ {\sf\large BSc\\[0.5cm]}}
 
 \date{\sf\Date~\Month~\Year}
 \makeatletter
-\lfoot{\sf Ang, Ma, XXX: \@date}
+\lfoot{\sf Effendy, Ang, Ma: \@date}
 \makeatother
 
 
@@ -216,7 +216,7 @@
 \makeatother
   \organization{Australian Government COVID19}
 
-  \def\name{Our consultancy \newline add names \&\newline add names}
+  \def\name{Faculty of Business and Economics}
 
   \telephone{(03) 9905 2478}
 
@@ -393,7 +393,7 @@ JPN & 15747 & 613\\
 
 Table \ref{tab:tab1} shows the total cases and deaths of COVID-19 in China and Japan from December 2019 to May 2020.
 
-\clearpage
+Figure \ref{fig:fig1} Shows the trend of cases reported every day in China and Japan.
 
 \begin{figure}
 
@@ -404,13 +404,46 @@ Table \ref{tab:tab1} shows the total cases and deaths of COVID-19 in China and J
 \caption{Cases by time}\label{fig:fig1}
 \end{figure}
 
-Figure \ref{fig:fig1} Shows the trend of cases reported every day in China and Japan.
+For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12 \autocite{time}. If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
 
-For China, there is a large increase from February 12 to February 13. The reason is that 13,332 of these 15141 new cases are clinically (rather than laboratory) confirmed cases, reported for the first time as an effect of a change in how cases are diagnosed and reported in Hubei province starting on February 12. See more information \href{https://www.worldometers.info/coronavirus/how-to-interpret-feb-12-case-surge/}{here}. If we ignore this outlier, there's an increasing trend from January 18 to February 5, and then the count of cases decreases till May. It can be seen that for China, the large-scale outbreak of the COVID-19 occurred between the end of January and the beginning of March.
+For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March. The cases in Japan began to increase in early February, this is because an outbreakamong passengers and crew on a cruise ship led to quaran-tine of approximately 3,700 passengers and crew that began on February 3, and lasted for nearly 4 weeks at the Port of Yokohama. By February 9, 20 cases had occurred among the ship's crew members. By the end of quarantine, approximately 700 cases had been laboratory-confirmed among passengers and crew \autocite{kakimoto2020initial}.
 
-For Japan, the peak of cases appeared in April 12 with a count of 1401. And the large-scale outbreak of the COVID-19 occurred between the end of March. The cases in Jpan began to increase in early February, this is because an outbreakamong passengers and crew on a cruise ship led to quaran-tine of approximately 3,700 passengers and crew that began on February 3, and lasted for nearly 4 weeks at the Port of Yokohama. By February 9, 20 cases had occurred among the ship's crew members. By the end of quarantine, approximately 700 cases had been laboratory-confirmed among passengers and crew \textcite{kakimoto2020initial} .
+\clearpage
 
-\section*{Country XX3 and YY3}
+\section*{Country Italy and USA}
+
+\begin{figure}
+\centering
+\includegraphics{report_files/figure-latex/cases-plot-1.pdf}
+\caption{\label{fig:cases-plot}2020 COVID-19 Cases in Italy and USA}
+\end{figure}
+
+Figure \ref{fig:cases-plot} reflects the number of COVID-19 cases in Italy and USA from January to May 2020. The total number of cases are reflected in the y axis, and the x axis represents the period (month). It is reflected in the figure that COVID-19 cases did not start in Italy and USA until March where there was no significant difference between the two countries. There was a slight increase in COVID-19 cases in April in Italy. However, the number of cases in the US rose significantly in April. By the end of April, the number of cases in the US is approximately four times larger in comparison to Italy. According to \autocite{vox} the number of COVID-19 cases in the US make up approximately a third of the world's cases.
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:death-table}Top 5 Largest Number of Daily Deaths in Italy and USA}
+\centering
+\begin{tabular}[t]{l|l|r}
+\hline
+countriesAndTerritories & dateRep & deaths\\
+\hline
+United\_States\_of\_America & 16/04/2020 & 4928\\
+\hline
+United\_States\_of\_America & 18/04/2020 & 3770\\
+\hline
+United\_States\_of\_America & 24/04/2020 & 3179\\
+\hline
+United\_States\_of\_America & 30/04/2020 & 2611\\
+\hline
+United\_States\_of\_America & 22/04/2020 & 2524\\
+\hline
+\end{tabular}
+\end{table}
+
+Table \ref{tab:death-table} shows the top 5 largest daily in COVID-19 related deaths in Italy and USA. The table shows that the 5 largest amount of deaths occured in one day happened in the US. These mostly happened in the third and fourth week of April. The highest amount of daily deaths occured on the 16th of April, where 4,928 lose their lives.The second highest occured on the same week on the 18th of April with 3,770 number of deaths.
 
 \clearpage
 

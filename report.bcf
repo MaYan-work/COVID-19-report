@@ -2189,20 +2189,21 @@
     <bcf:citekey order="4">fowler2020effect</bcf:citekey>
     <bcf:citekey order="5">sgcb2</bcf:citekey>
     <bcf:citekey order="6">sgcb2</bcf:citekey>
-    <bcf:citekey order="7">kakimoto2020initial</bcf:citekey>
+    <bcf:citekey order="7">time</bcf:citekey>
     <bcf:citekey order="8">kakimoto2020initial</bcf:citekey>
-    <bcf:citekey order="9">tidyverse</bcf:citekey>
+    <bcf:citekey order="9">vox</bcf:citekey>
     <bcf:citekey order="10">tidyverse</bcf:citekey>
-    <bcf:citekey order="11">readr</bcf:citekey>
+    <bcf:citekey order="11">tidyverse</bcf:citekey>
     <bcf:citekey order="12">readr</bcf:citekey>
-    <bcf:citekey order="13">KableExtra</bcf:citekey>
+    <bcf:citekey order="13">readr</bcf:citekey>
     <bcf:citekey order="14">KableExtra</bcf:citekey>
-    <bcf:citekey order="15">bookdown</bcf:citekey>
+    <bcf:citekey order="15">KableExtra</bcf:citekey>
     <bcf:citekey order="16">bookdown</bcf:citekey>
-    <bcf:citekey order="17">bookdown2</bcf:citekey>
+    <bcf:citekey order="17">bookdown</bcf:citekey>
     <bcf:citekey order="18">bookdown2</bcf:citekey>
-    <bcf:citekey order="19">lubridate</bcf:citekey>
+    <bcf:citekey order="19">bookdown2</bcf:citekey>
     <bcf:citekey order="20">lubridate</bcf:citekey>
+    <bcf:citekey order="21">lubridate</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

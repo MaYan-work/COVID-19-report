@@ -97,6 +97,44 @@
       \verb http://www.jstatsoft.org/v40/i03/
       \endverb
     \endentry
+    \entry{time}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f1242dff7b0d8f52bb50bd3054de41a5}{%
+           family={Gunia},
+           familyi={G\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c296737693683055d7ec7ac7456fd11e}{%
+           family={Zennie},
+           familyi={Z\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b71a1b644fd9e0e05ebb01109ac77d5b}
+      \strng{fullhash}{b71a1b644fd9e0e05ebb01109ac77d5b}
+      \strng{bibnamehash}{b71a1b644fd9e0e05ebb01109ac77d5b}
+      \strng{authorbibnamehash}{b71a1b644fd9e0e05ebb01109ac77d5b}
+      \strng{authornamehash}{b71a1b644fd9e0e05ebb01109ac77d5b}
+      \strng{authorfullhash}{b71a1b644fd9e0e05ebb01109ac77d5b}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{13}
+      \field{journaltitle}{Time}
+      \field{month}{2}
+      \field{title}{China Reported a Huge Increase in New COVID-19 Cases. Here’s Why It’s Actually a Step in the Right Direction}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://time.com/5783401/covid19-hubei-cases-classification/
+      \endverb
+      \verb{url}
+      \verb https://time.com/5783401/covid19-hubei-cases-classification/
+      \endverb
+    \endentry
     \entry{kakimoto2020initial}{article}{}
       \name{author}{6}{}{%
         {{hash=63c845d2b3c132d84c7465bd716e9564}{%
@@ -144,6 +182,39 @@
       \field{labeltitlesource}{title}
       \field{title}{Initial investigation of transmission of COVID-19 among crew members during quarantine of a cruise ship—Yokohama, Japan, February 2020}
       \field{year}{2020}
+    \endentry
+    \entry{vox}{article}{}
+      \name{author}{1}{}{%
+        {{hash=a455860ac15b7d587b4b8307ece48a28}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={Dylan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{a455860ac15b7d587b4b8307ece48a28}
+      \strng{fullhash}{a455860ac15b7d587b4b8307ece48a28}
+      \strng{bibnamehash}{a455860ac15b7d587b4b8307ece48a28}
+      \strng{authorbibnamehash}{a455860ac15b7d587b4b8307ece48a28}
+      \strng{authornamehash}{a455860ac15b7d587b4b8307ece48a28}
+      \strng{authorfullhash}{a455860ac15b7d587b4b8307ece48a28}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{11}
+      \field{journaltitle}{Vox}
+      \field{month}{5}
+      \field{title}{How the US stacks up to other countries in confirmed coronavirus cases}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://www.vox.com/policy-and-politics/2020/3/13/21178289/confirmed-coronavirus-cases-us-countries-italy-iran-singapore-hong-kong
+      \endverb
+      \verb{url}
+      \verb https://www.vox.com/policy-and-politics/2020/3/13/21178289/confirmed-coronavirus-cases-us-countries-italy-iran-singapore-hong-kong
+      \endverb
     \endentry
     \entry{sgcb2}{article}{}
       \name{author}{2}{}{%
