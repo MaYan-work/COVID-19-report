@@ -80,7 +80,7 @@ sgp_usa %>%
     fill = "white"
   ) +
   ylab("New Cases and Deaths (per million)") +
-  scale_color_brewer(palette = "Dark2") +
+  scale_color_brewer(palette="Dark2") +
   geom_line(aes(
     x = date,
     y = deaths_per_mil,
